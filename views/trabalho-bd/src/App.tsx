@@ -10,7 +10,11 @@ function App() {
     setMediaTypeExibition(type);
 
     console.log(type);
-  }
+  };
+
+  const handleOpenProfile = (user: string) => {
+    console.log("Abrir Perfil de ", user);
+  };
 
   const toggleTheme = () => {
     setTheme((prevTheme) => {
@@ -24,7 +28,11 @@ function App() {
 
   return (
     <>
-      <Header onToggleTheme={toggleTheme} onToggleMediaType={toggleMediaTypeExibition}></Header>
+      <Header
+        onToggleTheme={toggleTheme}
+        onToggleMediaType={toggleMediaTypeExibition}
+        onHandleOpenProfile={handleOpenProfile}
+      ></Header>
     </>
   );
 }

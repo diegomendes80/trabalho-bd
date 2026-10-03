@@ -14,9 +14,10 @@ import { SearchInput } from "../UI/searchInput/searchInput.tsx";
 interface HeaderProps {
   onToggleTheme: () => void;
   onToggleMediaType: (type: "movies" | "series") => void;
+  onHandleOpenProfile: (type: string) => void;
 }
 
-export const Header = ({onToggleTheme, onToggleMediaType} : HeaderProps) => {
+export const Header = ({onToggleTheme, onToggleMediaType, onHandleOpenProfile} : HeaderProps) => {
 
 
   return (
@@ -40,7 +41,7 @@ export const Header = ({onToggleTheme, onToggleMediaType} : HeaderProps) => {
       </Box>
 
       <Box component="div" className="header__profile">
-        <ProfileIcon name="Sherlock"/>
+        <ProfileIcon name="Sherlock" onHandleOpenProfile={onHandleOpenProfile}/>
       </Box>
     </Box>
   );
