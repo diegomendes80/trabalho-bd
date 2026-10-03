@@ -1,0 +1,22 @@
+$theme: (
+  headerBackground: #0e131d,
+  inputBackground: #0b0f16,
+  inputBorderColor: #19c8e626,
+  inputBorderHoverColor: rgba(25, 200, 230, 0.4),
+  inputBorderFocusColor: rgba(25, 200, 230, 0.7),
+  panel: #10151f,
+  primary-text: #eaf1ff,
+  secondary-text: #a9b6cf,
+  action1: #19c8e6,
+  white-ice: (
+    0 0 6px rgba(#eaf1ff, 0.45),
+    0 0 18px rgba(#eaf1ff, 0.2),
+  ),
+  cyan-ice: (
+    0 0 6px rgba(#19c8e6, 0.6),
+    0 0 18px rgba(#19c8e6, 0.35),
+  ),
+  action2: #e5484d,
+  highlight: #d95f35,
+
+);

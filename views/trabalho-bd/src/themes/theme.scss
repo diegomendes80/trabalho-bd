@@ -1,0 +1,17 @@
+@use 'sass:map';
+@use './light' as light;
+@use './dark' as dark;
+
+@mixin apply-theme($theme){
+    @each $key, $value in $theme {
+        --#{$key}: #{$value};
+    }
+}
+
+:root{
+    @include apply-theme(dark.$theme);
+}
+
+:root[data-theme="light"]{
+    @include apply-theme(light.$theme);
+}

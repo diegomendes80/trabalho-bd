@@ -1,0 +1,41 @@
+@use '../../../themes/theme.scss';
+
+.search__input {
+    background-color: var(--inputBackground);
+    width: 100%;
+
+    .MuiOutlinedInput-root {
+        color: var(--primary-text);
+        font-family: "Inter", sans-serif;
+        font-weight: 400;
+
+        .MuiOutlinedInput-input { //root do input
+            color: var(--primary-text);
+            opacity: .8;
+            padding: 10px 0;
+
+            &::placeholder { //alterar coisas do placeholder
+                color: var(--primary-text);
+              
+            }
+        }
+
+        .MuiOutlinedInput-notchedOutline { //bordar no estado normal
+            border-radius: 1.5rem;
+            border-color: var(--inputBorderColor);
+        }
+
+        &:hover .MuiOutlinedInput-notchedOutline { //bordar no estado hover
+            border-color: var(--inputBorderHoverColor);
+        }
+
+        &.Mui-focused .MuiOutlinedInput-notchedOutline { //bordar no estado focus
+            border-color: var(--inputBorderFocusColor);
+        }
+    }
+
+    .search__icon {
+        color: var(--primary-text);
+        opacity: .8;
+    }
+}
