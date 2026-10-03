@@ -13,9 +13,10 @@ import { SearchInput } from "../UI/searchInput/searchInput.tsx";
 
 interface HeaderProps {
   onToggleTheme: () => void;
+  onToggleMediaType: (type: "movies" | "series") => void;
 }
 
-export const Header = ({onToggleTheme} : HeaderProps) => {
+export const Header = ({onToggleTheme, onToggleMediaType} : HeaderProps) => {
 
 
   return (
@@ -28,8 +29,8 @@ export const Header = ({onToggleTheme} : HeaderProps) => {
         <SearchInput/>
       </Box>
 
-      <Box component="div" className="header__theme-switch">
-        <SwitchButton/>
+      <Box component="div" className="header__theme-switch" >
+        <SwitchButton onToggleMediaType={onToggleMediaType}/>
       </Box>
 
       <Box component="div" className="header__action-review">
