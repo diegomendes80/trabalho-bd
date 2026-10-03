@@ -28,7 +28,7 @@ export const Header = ({onToggleTheme} : HeaderProps) => {
         <SearchInput/>
       </Box>
 
-      <Box component="div" className="header__therme-switch">
+      <Box component="div" className="header__theme-switch">
         <SwitchButton/>
       </Box>
 
