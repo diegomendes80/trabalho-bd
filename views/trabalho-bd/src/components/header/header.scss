@@ -1,0 +1,14 @@
+@use '../../themes/theme.scss';
+
+.header{
+    background-color: var(--headerBackground);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2.5rem;
+
+    .header__search{
+        width: 35%;
+        // margin-right: auto;
+    }
+}

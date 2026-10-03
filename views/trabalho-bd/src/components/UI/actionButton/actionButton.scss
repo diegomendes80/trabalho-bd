@@ -1,0 +1,15 @@
+@use "../../../themes/theme.scss";
+
+.MuiButton-root.action-button {
+  background-color: var(--action1);
+  color: var(--inputBackground);
+  border-radius: 1.5rem;
+    padding:8px 20px;
+    text-transform: none;
+    font-size: 16px;
+
+  .MuiSvgIcon-root {
+    font-size: 1.5rem;
+    margin-right: 0.5rem;
+  }
+}

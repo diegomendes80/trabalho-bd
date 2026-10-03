@@ -1,0 +1,33 @@
+@use "../../../themes/theme.scss";
+
+.toggle-group {
+  background-color: var(--inputBackground);
+  color: var(--primary-text);
+
+  .MuiToggleButton-root {
+    border-radius: 1.5rem;
+    padding: 10px 20px;
+    border: 1px solid var(--inputBorderColor);
+    color: var(--primary-text);
+    font-family: "Inter", sans-serif;
+    font-size:12px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    opacity: 0.8;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      background: var(--inputBackground);
+    }
+
+    &.Mui-selected:hover {
+      background-color: var(--action1);
+    }
+
+    &.Mui-selected {
+      background-color: var(--action1);
+      color: var(--inputBackground);
+      opacity: 1;
+    }
+  }
+}

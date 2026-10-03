@@ -1,0 +1,17 @@
+@use "../../../themes/theme.scss";
+
+.MuiTypography-root.logo__text {
+  color: var(--primary-text);
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+
+  text-shadow: var(--white-ice);
+
+  .logo__text--highlight {
+    color: var(--action1);
+    text-shadow: var(--cyan-ice);
+
+  }
+}

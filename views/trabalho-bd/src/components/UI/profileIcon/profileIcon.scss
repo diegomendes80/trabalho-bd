@@ -1,0 +1,17 @@
+@use '../../../themes/theme.scss';
+
+.MuiAvatar-root.profile-icon{
+    background-color: var(--inputBackground);
+    color:var(--primary-text);
+    padding: 25px;
+    border: 1px solid var(--inputBorderColor);
+    font-family: 'JetBrains Mono', sans-serif;
+    font-weight: 600;
+
+
+   &:hover{
+    cursor: pointer;
+    border-color: var(--inputBorderHoverColor);
+   }
+
+}
