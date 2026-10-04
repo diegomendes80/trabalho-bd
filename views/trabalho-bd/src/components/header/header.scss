@@ -1,12 +1,14 @@
 @use "../../themes/theme.scss";
 
 .header {
-  background-color: var(--headerBackground);
+  background-color: var(--glassPanel);
+  border-bottom: 1px solid var(--inputBorderColor);
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2.5rem;
+  height: 12vh;
 
   .header__search {
     width: 35%;
@@ -22,7 +24,7 @@
     .header__logo {
       order: 1;
       flex-basis: 50%;
-      margin-bottom: 1rem;;
+      // margin-bottom: 1rem;;
     }
 
     .header__search {
@@ -51,7 +53,13 @@
       justify-content: right;
       order: 2;
       flex-basis: 50%;
-      margin-bottom: 1rem;;
+      // margin-bottom: 1rem;;
     }
+  }
+}
+
+@media (max-width:1200px){
+  .header{
+    height: 25vh;
   }
 }

@@ -1,0 +1,59 @@
+@use "../../../themes/theme.scss";
+
+.control-root {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 15%;
+
+  .control__btn {
+    background-color: var(--inputBackground);
+    border: 1px solid var(--inputBorderColor);
+    color: var(--primary-text);
+    height: fit-content;
+    width: fit-content;
+    border-radius: 50%;
+    padding: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      color: var(--action1);
+      cursor: pointer;
+    }
+
+    .btn-icon {
+      font-size: 15px;
+    }
+  }
+
+  .control__dots-display {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    .dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background-color: var(--secondary-text);
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .control-root {
+    width: 40%;
+
+    .control__btn {
+      .btn-icon {
+        font-size: 12px;
+      }
+    }
+    .control__dots-display {
+      gap: 0.5rem;
+    }
+  }
+}
