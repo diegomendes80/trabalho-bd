@@ -1,10 +1,13 @@
 $theme: (
-  headerBackground: #0e131d,
+  mainBackground: #080b12,
   inputBackground: #0b0f16,
   inputBorderColor: #19c8e626,
   inputBorderHoverColor: rgba(25, 200, 230, 0.4),
   inputBorderFocusColor: rgba(25, 200, 230, 0.7),
+  highlightBackground: #153d48,
+  savedMediaButtonBackground: #10222c,
   panel: #10151f,
+  glassPanel: rgba(16, 21, 31, 0.72),
   primary-text: #eaf1ff,
   secondary-text: #a9b6cf,
   action1: #19c8e6,
@@ -18,5 +21,4 @@ $theme: (
   ),
   action2: #e5484d,
   highlight: #d95f35,
-
 );

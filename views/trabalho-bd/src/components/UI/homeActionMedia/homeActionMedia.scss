@@ -1,0 +1,38 @@
+@use "../../../themes/theme.scss";
+
+.action-media-root {
+  width: 40%;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+
+
+    .save-button {
+      background-color: var(--inputBackground);
+      color: var(--primary-text);
+        border: 1px solid var(--primary-text);
+
+      
+    }
+
+    .saved{
+        background-color: var(--savedMediaButtonBackground);
+        color: var(--action1);
+        border: 1px solid var(--action1);
+
+    }
+
+  
+}
+
+
+@media (max-width:1200px){
+    .action-media-root{
+        width: 100%;
+
+        .save-button, .rate-button{
+            font-size: 14px;
+            padding: 15px 10px;
+        }
+    }
+}

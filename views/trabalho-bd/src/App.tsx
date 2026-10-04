@@ -1,6 +1,10 @@
 import { useState } from "react";
 
 import { Header } from "./components/header/header.tsx";
+import { Home } from "./components/home/home.tsx";
+
+
+
 
 function App() {
   const [theme, setTheme] = useState("dark");
@@ -26,6 +30,8 @@ function App() {
     });
   };
 
+
+
   return (
     <>
       <Header
@@ -33,6 +39,8 @@ function App() {
         onToggleMediaType={toggleMediaTypeExibition}
         onHandleOpenProfile={handleOpenProfile}
       ></Header>
+
+      <Home></Home>
     </>
   );
 }

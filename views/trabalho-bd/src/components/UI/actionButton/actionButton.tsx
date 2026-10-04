@@ -1,18 +1,15 @@
 import './actionButton.scss';
-import Button from "@mui/material/Button";
+import Button, { type ButtonProps } from "@mui/material/Button";
 
-interface ActionButtonProps {
-    children: React.ReactNode;
-    onClick: () => void;
-    icon: React.ReactNode;
-    
+interface ActionButtonProps extends ButtonProps {
+    icon?: React.ReactNode;
 }
 
-export const ActionButton = ({children, onClick, icon}: ActionButtonProps) => {
+export const ActionButton = ({ children, icon, className, ...props }: ActionButtonProps) => {
     return (
-        <Button className="action-button" onClick={onClick}>
+        <Button className={`action-button ${className ?? ""}`} {...props}>
             {icon}
             {children}
         </Button>
     )
-} 
+}
