@@ -1,26 +1,34 @@
-import './carrouselControl.scss';
-import { Box } from '@mui/material';
-import ArrowBackIosNewOutlinedIcon from '@mui/icons-material/ArrowBackIosNewOutlined';
-import ArrowForwardIosOutlinedIcon from '@mui/icons-material/ArrowForwardIosOutlined';
+import "./carrouselControl.scss";
+import { Box } from "@mui/material";
+import ArrowBackIosNewOutlinedIcon from "@mui/icons-material/ArrowBackIosNewOutlined";
+import ArrowForwardIosOutlinedIcon from "@mui/icons-material/ArrowForwardIosOutlined";
+import { MAX_HIGHLITHED_MEDIAS } from "../../home/home";
 
-export const CarrouselControl = () => {
-    return (
-        <Box component="div" className="control-root">
-            <Box component="span" className="control__btn previous">
-                <ArrowBackIosNewOutlinedIcon className='btn-icon'/>
-            </Box>
-
-            <Box component="div" className="control__dots-display">
-                <Box component="span" className="dot 1"/>
-                <Box component="span" className="dot 2"/>
-                <Box component="span" className="dot 3"/>
-                <Box component="span" className="dot 4"/>
-                <Box component="span" className="dot 5"/>
-            </Box>
-
-            <Box component="span" className="control__btn next">
-                <ArrowForwardIosOutlinedIcon className='btn-icon'/>
-            </Box>
-        </Box>
-    )
+interface CarrouselControlProps {
+  positionHighlited: number;
+  onChangePosition: (value: number) => void;
 }
+
+export const CarrouselControl = ({
+  positionHighlited,
+  onChangePosition,
+}: CarrouselControlProps) => {
+  return (
+    <Box component="div" className="control-root">
+      <Box component="span" className="control__btn previous" onClick={(e) => {onChangePosition(positionHighlited-1)}}>
+        <ArrowBackIosNewOutlinedIcon className="btn-icon" />
+      </Box>
+
+      <Box component="div" className="control__dots-display">
+        {Array.from({ length: MAX_HIGHLITHED_MEDIAS }, (_, i) => (
+          <Box key={i} component="span" className={`dot ${i} ${positionHighlited == i ? "highlited" : ""}`}/>
+        ))}
+       
+      </Box>
+
+      <Box component="span" className="control__btn next" onClick={() => {onChangePosition(positionHighlited+1)}}>
+        <ArrowForwardIosOutlinedIcon className="btn-icon" />
+      </Box>
+    </Box>
+  );
+};

@@ -19,6 +19,12 @@
     align-items: center;
     justify-content: center;
 
+    -webkit-tap-highlight-color: transparent;
+    user-select: none; // evita selecionar texto/ícone com toque longo
+    cursor: pointer;
+    outline: none; // tira o contorno de foco ao clicar
+  
+
     &:hover {
       color: var(--action1);
       cursor: pointer;
@@ -35,17 +41,21 @@
     justify-content: space-between;
     gap: 1rem;
     .dot {
-      width: 5px;
-      height: 5px;
+      width: 7px;
+      height: 7px;
       border-radius: 50%;
       background-color: var(--secondary-text);
+    }
+
+    .highlited{
+      background-color: var(--action1);
     }
   }
 }
 
 @media (max-width: 1200px) {
   .control-root {
-    width: 40%;
+    width: 45%;
 
     .control__btn {
       .btn-icon {
