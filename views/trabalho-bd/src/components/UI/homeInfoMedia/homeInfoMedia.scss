@@ -51,6 +51,13 @@
     }
 
     .sinopse {
+      overflow-wrap: break-word;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      line-height: 1.5;
+      min-height: calc(1.5em * 3);
       margin-top: 10px;
       font-family: "Inter";
       word-break: break;
@@ -63,24 +70,23 @@
   .info-media-root {
     width: 95%;
 
-     .highlight-tag {
-        font-size: .8rem;
-        padding: 8px 15px;
-     }
+    .highlight-tag {
+      font-size: 0.8rem;
+      padding: 8px 15px;
+    }
 
     .info-media__content {
       .about-media {
-        .media__p{
-            font-size: 14px;
-
+        .media__p {
+          font-size: 14px;
         }
       }
 
-      .title-media{
+      .title-media {
         font-size: 3rem;
       }
 
-      .sinopse{
+      .sinopse {
         font-size: 15px;
       }
     }
