@@ -2,14 +2,15 @@ import "./carrouselControl.scss";
 import { Box } from "@mui/material";
 import ArrowBackIosNewOutlinedIcon from "@mui/icons-material/ArrowBackIosNewOutlined";
 import ArrowForwardIosOutlinedIcon from "@mui/icons-material/ArrowForwardIosOutlined";
-import { MAX_HIGHLITHED_MEDIAS } from "../../home/home";
 
 interface CarrouselControlProps {
+  qtd_medias: number;
   positionHighlited: number;
   onChangePosition: (value: number) => void;
 }
 
 export const CarrouselControl = ({
+  qtd_medias,
   positionHighlited,
   onChangePosition,
 }: CarrouselControlProps) => {
@@ -20,7 +21,7 @@ export const CarrouselControl = ({
       </Box>
 
       <Box component="div" className="control__dots-display">
-        {Array.from({ length: MAX_HIGHLITHED_MEDIAS }, (_, i) => (
+        {Array.from({ length: qtd_medias }, (_, i) => (
           <Box key={i} component="span" className={`dot ${i} ${positionHighlited == i ? "highlited" : ""}`}/>
         ))}
        
