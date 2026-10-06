@@ -1,0 +1,15 @@
+@use "../../../themes/theme.scss";
+
+.media__nota {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+
+  color: var(--primary-text);
+  font-weight: 600;
+  font-family: "JetBrains Mono";
+
+  .MuiSvgIcon-root {
+    color: var(--action1);
+  }
+}

@@ -2,6 +2,7 @@ import "./homeInfoMedia.scss";
 import { Typography, Box } from "@mui/material";
 import type { Media } from "../../../types/media";
 import StarIcon from "@mui/icons-material/Star";
+import { MediaRate } from "../mediaRate/mediaRate";
 
 interface HomeInfoMediaProps {
   media: Media;
@@ -21,9 +22,8 @@ export const HomeInfoMedia = ({ media, nota }: HomeInfoMediaProps) => {
         </Typography>
 
         <Box component="div" className="about-media">
-          <Typography variant="body1" className="media__nota">
-            <StarIcon className="icon-nota" /> {nota}{" "}
-          </Typography>
+          
+          <MediaRate rate={nota}/>
 
           <Typography variant="body1" className="media__p">
             {" "}

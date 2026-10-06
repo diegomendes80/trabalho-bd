@@ -1,14 +1,17 @@
 import './searchInput.scss';
-import TextField from "@mui/material/TextField";
+import TextField  from "@mui/material/TextField";
+import type { TextFieldProps } from "@mui/material/TextField";
 import InputAdornment from "@mui/material/InputAdornment";
 import SearchIcon from "@mui/icons-material/Search";
 
-export const SearchInput = () => {
+type SearchInputProps = TextFieldProps;
+
+export const SearchInput = ({...props}:SearchInputProps) => {
 
     return(
         <TextField
           className="search__input"
-          placeholder="Buscar no catálogo..."
+          {...props}
           slotProps={{
             input: {
               startAdornment: (
