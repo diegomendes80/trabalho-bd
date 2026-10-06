@@ -27,7 +27,7 @@ export const Header = ({onToggleTheme, onToggleMediaType, onHandleOpenProfile} :
       </Box>
 
       <Box component="div" className="header__search">
-        <SearchInput/>
+        <SearchInput placeholder="Buscar no catálogo..."/>
       </Box>
 
       <Box component="div" className="header__theme-switch" >

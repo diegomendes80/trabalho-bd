@@ -1,10 +1,9 @@
 import { useState } from "react";
-
+import "./App.scss";
 import { Header } from "./components/header/header.tsx";
 import { Home } from "./components/home/home.tsx";
-
-
-
+import { ModalSearch } from "./components/modalSearch/modalSearch.tsx";
+import { Box } from "@mui/material";
 
 function App() {
   const [theme, setTheme] = useState("dark");
@@ -30,10 +29,8 @@ function App() {
     });
   };
 
-
-
   return (
-    <>
+    <Box component="div" className="app-root">
       <Header
         onToggleTheme={toggleTheme}
         onToggleMediaType={toggleMediaTypeExibition}
@@ -41,7 +38,9 @@ function App() {
       ></Header>
 
       <Home typeMedia={mediaTypeExibition}></Home>
-    </>
+
+      <ModalSearch />
+    </Box>
   );
 }
 
