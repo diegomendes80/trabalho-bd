@@ -40,7 +40,7 @@ function App() {
         onHandleOpenProfile={handleOpenProfile}
       ></Header>
 
-      <Home></Home>
+      <Home typeMedia={mediaTypeExibition}></Home>
     </>
   );
 }
