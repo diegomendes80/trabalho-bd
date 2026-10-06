@@ -7,18 +7,18 @@ export interface BaseMedia {
   srcBannerMobile: string;
   director: string;
   releaseYear: number;
-  minuteDuration: number;
   saved: boolean;
 }
 
 export interface Movie extends BaseMedia {
-    type: "movies";
+  type: "movies";
+  minuteDuration: number;
 }
 
 export interface Serie extends BaseMedia {
-    type: "series";
-    qtdEpisodes: number;
-    qtdSeasons: number;
+  type: "series";
+  qtdEpisodes: number;
+  qtdSeasons: number;
 }
 
 export type Media = Movie | Serie;

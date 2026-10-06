@@ -1,7 +1,8 @@
 import "./home.scss";
 import { useState, useEffect } from "react";
 import type { Media } from "../../types/media";
-import { getRatedMovies } from "../../services/movies";
+import { getPopularMovies } from "../../services/movies";
+import { getPopularTvShows } from "../../services/series";
 import { BackgroundMovie } from "../UI/backgroundMovie/backgroundMovie";
 import { HomeInfoMedia } from "../UI/homeInfoMedia/homeInfoMedia";
 import { HomeActionMedia } from "../UI/homeActionMedia/homeActionMedia";
@@ -10,14 +11,23 @@ import { CarrouselControl } from "../UI/carrouselControl/carrouselControl";
 
 export const MAX_HIGHLITHED_MEDIAS = 5;
 
-export const Home = () => {
+interface HomeProps {
+  typeMedia: string;
+}
+
+export const Home = ({ typeMedia }: HomeProps) => {
   const [medias, setMedias] = useState<Media[]>([]);
   const [positionHighlighted, setPositionHighlighted] = useState(0);
   const mediaHighlighted = medias[positionHighlighted];
 
+  // if(typeMedia == "series") console.log("serie")
+  // if(typeMedia == "movies") console.log("movie")
+
   useEffect(() => {
-    getRatedMovies().then(setMedias).catch(console.error);
-  }, []);
+    setPositionHighlighted(0);
+    const fetch = typeMedia === "series" ? getPopularTvShows : getPopularMovies;
+    fetch().then(setMedias);
+  }, [typeMedia]);
 
   const setNewHighlited = (newPosition: number) => {
     const total = medias.length;
@@ -25,7 +35,6 @@ export const Home = () => {
   };
 
   useEffect(() => {
-
     if (medias.length === 0) return;
     const id = setInterval(() => {
       setNewHighlited(positionHighlighted + 1);
@@ -40,7 +49,7 @@ export const Home = () => {
         i === id ? { ...media, saved: !media.saved } : media,
       ),
     );
-  }
+  };
 
   if (!mediaHighlighted) return null;
 
