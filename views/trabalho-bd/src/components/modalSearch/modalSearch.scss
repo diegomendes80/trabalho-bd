@@ -28,6 +28,12 @@
       width: 100%;
       display: flex;
       justify-content: right;
+
+      .close-icon{
+        &:hover{
+            cursor: pointer;
+        }
+      }
     }
 
     .result__search-input {
@@ -64,6 +70,10 @@
       }
     }
   }
+}
+
+.disable{
+    display: none;
 }
 
 @media (max-width: 1200px) {

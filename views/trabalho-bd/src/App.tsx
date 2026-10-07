@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import "./App.scss";
 import { Header } from "./components/header/header.tsx";
 import { Home } from "./components/home/home.tsx";
@@ -8,6 +8,7 @@ import { Box } from "@mui/material";
 function App() {
   const [theme, setTheme] = useState("dark");
   const [mediaTypeExibition, setMediaTypeExibition] = useState("movies");
+  const [openSearch, setOpenSearch] = useState(false);
 
   const toggleMediaTypeExibition = (type: "movies" | "series") => {
     setMediaTypeExibition(type);
@@ -35,11 +36,13 @@ function App() {
         onToggleTheme={toggleTheme}
         onToggleMediaType={toggleMediaTypeExibition}
         onHandleOpenProfile={handleOpenProfile}
+        onClickInputSearch={setOpenSearch}
+   
       ></Header>
 
       <Home typeMedia={mediaTypeExibition}></Home>
 
-      <ModalSearch />
+      <ModalSearch openSearch={openSearch} onClickClose={setOpenSearch}/>
     </Box>
   );
 }
