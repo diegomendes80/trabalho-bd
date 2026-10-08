@@ -1,4 +1,7 @@
+@use './themes/theme.scss';
+
 .app-root{
+    background-color: var(--mainBackground);
     position: relative;
     z-index: 1;
     
