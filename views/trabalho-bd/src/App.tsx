@@ -38,7 +38,7 @@ function App() {
 
       <ModalSearch openSearch={openSearch} onClickClose={setOpenSearch} />
 
-      <MainContent/>
+      <MainContent typeMedia={mediaTypeExibition}/>
     </Box>
   );
 }
