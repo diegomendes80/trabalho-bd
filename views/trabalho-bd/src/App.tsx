@@ -3,6 +3,7 @@ import "./App.scss";
 import { Header } from "./components/header/header.tsx";
 import { Home } from "./components/home/home.tsx";
 import { ModalSearch } from "./components/modalSearch/modalSearch.tsx";
+import { MainContent } from "./components/mainContent/mainContent.tsx";
 import { Box } from "@mui/material";
 
 
@@ -36,6 +37,8 @@ function App() {
       <Home typeMedia={mediaTypeExibition}></Home>
 
       <ModalSearch openSearch={openSearch} onClickClose={setOpenSearch} />
+
+      <MainContent/>
     </Box>
   );
 }
