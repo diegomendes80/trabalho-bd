@@ -1,5 +1,5 @@
 import './mediaRate.scss';
-import { Typography, Box } from "@mui/material";
+import { Typography } from "@mui/material";
 import StarIcon from "@mui/icons-material/Star";
 
 

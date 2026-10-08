@@ -1,9 +1,5 @@
 import "./header.scss";
 import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import TextField from "@mui/material/TextField";
-import InputAdornment from "@mui/material/InputAdornment";
-import SearchIcon from "@mui/icons-material/Search";
 import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
 import { SwitchButton } from "../UI/toggleButton/togglebutton.tsx";
 import { ActionButton } from "../UI/actionButton/actionButton.tsx";
@@ -12,7 +8,7 @@ import { Logo } from "../UI/logo/logo.tsx";
 import { SearchInput } from "../UI/searchInput/searchInput.tsx";
 
 interface HeaderProps {
-  onToggleTheme: () => void;
+ 
   onToggleMediaType: (type: "movies" | "series") => void;
   onHandleOpenProfile: (type: string) => void;
   onClickInputSearch: (type: boolean) => void;
@@ -20,7 +16,6 @@ interface HeaderProps {
 }
 
 export const Header = ({
-  onToggleTheme,
   onToggleMediaType,
   onHandleOpenProfile,
   onClickInputSearch,

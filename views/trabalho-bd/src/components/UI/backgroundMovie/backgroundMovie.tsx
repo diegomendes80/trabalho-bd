@@ -1,5 +1,4 @@
 import "./backgroundMovie.scss";
-import { Box } from "@mui/material";
 
 interface BackgroundMovieProps {
   srcBanner: string;

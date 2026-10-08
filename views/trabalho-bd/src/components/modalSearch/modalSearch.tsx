@@ -1,6 +1,6 @@
 import "./modalSearch.scss";
-import { useRef, useState, useEffect } from "react";
-import { Box, Typography } from "@mui/material";
+import { useState, useEffect } from "react";
+import { Box } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import { SearchInput } from "../UI/searchInput/searchInput";
 import { MediaResult } from "../UI/mediaResult/mediaResult";
@@ -10,7 +10,7 @@ import { getMovie } from "../../services/movies";
 interface ModalSearchProps {
   openSearch: boolean;
   onClickClose: (close: boolean) => void;
-  //  onChangeInput: (value: string) => void;
+ 
 }
 
 export const ModalSearch = ({ openSearch, onClickClose }: ModalSearchProps) => {
