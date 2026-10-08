@@ -35,12 +35,7 @@ export const getPopularTvShows = async (): Promise<Media[]> => {
     const tvShows = await Promise.all(
       rawData.map(async (m: any) => {
         const details = await getTvShowDetails(m.id);
-
-        const creditsRes = await fetch(
-          `${API_URL}/tv/${m.id}/credits?api_key=${API_KEY}&${LANGUAGE}`,
-        );
-        const credits = await creditsRes.json();
-        // const creator = credits.crew.find((c: any) => c.job === "Creator");
+        const creator = details.created_by?.[0];
 
         return {
           name: details.name,
@@ -49,8 +44,10 @@ export const getPopularTvShows = async (): Promise<Media[]> => {
           genders: details.genres?.map((g: any) => g.name) || [],
           srcBanner: `${IMG_URL}/w1280${details.backdrop_path}`,
           srcBannerMobile: `${IMG_URL}/w500${details.poster_path}`,
-          director: details.created_by?.[0]?.name || "Criador não disponível",
-          releaseYear: new Date(details.first_air_date).getFullYear(),
+          director: creator?.name || "Diretor não disponível",
+          releaseYear: m.first_air_date
+            ? new Date(m.first_air_date).getFullYear()
+            : 0,
           qtdEpisodes: details.number_of_episodes,
           qtdSeasons: details.number_of_seasons,
           saved: false,

@@ -3,7 +3,6 @@ import { Box, Typography } from "@mui/material";
 import type { Movie, Serie, Media } from "../../../types/media";
 import { MediaRate } from "../mediaRate/mediaRate";
 
-   
 const randomMovie: Movie = {
   name: "Eco do Amanhã",
   type: "movies",
@@ -33,46 +32,48 @@ const randomSerie: Serie = {
   saved: false,
 };
 
-
-const medias: Media[] = [randomMovie, randomSerie]; 
-
+const medias: Media[] = [randomMovie, randomSerie];
 
 interface MediaResultProps {
-  media:Media;
+  media: Media;
 }
 
-export const MediaResult = () => {
-
+export const MediaResult = ({ media }: MediaResultProps) => {
   return (
     <Box component="div" className="mediaResult-root">
-      <Box
-        component="img"
-        src={medias[1].srcBannerMobile}
-        alt={medias[1].name}
-        className="mediaResult__poster"
-      ></Box>
+      {media.srcBannerMobile && (
+        <Box
+          component="img"
+          src={media.srcBannerMobile}
+          alt={media.name}
+          className="mediaResult__poster"
+        />
+      )}
 
       <Box component="div" className="information">
         <Typography variant="h2" className="information__media-title">
-          {medias[1].name}
+          {media.name}
         </Typography>
 
         <Box component="div" className="information__details">
           <Typography variant="body1" className="p release_year">
-            {medias[1].releaseYear}
+            {media.releaseYear}
           </Typography>
           <Typography variant="body1" className="p minute_duration">
-            {medias[1].type == "movies" ? `${medias[1].minuteDuration} min` : `${medias[1].qtdSeasons} season`}
+            {media.type == "movies"
+              ? `${media.minuteDuration} min`
+              : `${media.qtdSeasons} season`}
           </Typography>
           <Typography variant="body1" className="p director">
-            {medias[1].director}
+            {media.director}
           </Typography>
         </Box>
 
         <Box component="div" className="information__type-rate">
-            <Box component="span" className="type">{medias[1].type}</Box>
-            <MediaRate rate={4.5}/>
-
+          <Box component="span" className="type">
+            {media.type}
+          </Box>
+          <MediaRate rate={4.5} />
         </Box>
       </Box>
     </Box>

@@ -1,4 +1,5 @@
 import type { Media } from "../types/media";
+import { getTvShowDetails } from "./series";
 
 const API_URL = "https://api.themoviedb.org/3";
 const IMG_URL = "https://image.tmdb.org/t/p";
@@ -18,7 +19,6 @@ export const getMovieDetails = async (id: string) => {
     console.log(error);
   }
 };
-
 
 export const getPopularMovies = async (): Promise<Media[]> => {
   try {
@@ -56,7 +56,9 @@ export const getPopularMovies = async (): Promise<Media[]> => {
           srcBanner: `${IMG_URL}/w1280${details.backdrop_path}`,
           srcBannerMobile: `${IMG_URL}/w500${details.poster_path}`,
           director: director?.name || "Diretor não disponível",
-          releaseYear: new Date(details.release_date).getFullYear(),
+          releaseYear: details.release_date
+            ? new Date(details.release_date).getFullYear()
+            : 0,
           minuteDuration: details.runtime || 0,
           saved: false,
         } as Media;
@@ -64,6 +66,87 @@ export const getPopularMovies = async (): Promise<Media[]> => {
     );
 
     return movies;
+  } catch (error) {
+    console.log(error);
+    return [];
+  }
+};
+
+export const getMovie = async (name: string): Promise<Media[]> => {
+  try {
+    const response = await fetch(
+      `${API_URL}/search/multi?query=${encodeURIComponent(name)}&language=pt-BR&api_key=${API_KEY}`,
+    );
+
+    const data = await response.json();
+
+    const medias = await Promise.all(
+      data.results
+        .filter(
+          (m: any) =>
+            (m.media_type === "movie" || m.media_type === "tv") &&
+            m.poster_path,
+        )
+        .map(async (m: any) => {
+          if (m.media_type == "movie") {
+            const details = await getMovieDetails(m.id);
+            // créditos para pegar diretor
+            const creditsRes = await fetch(
+              `${API_URL}/movie/${m.id}/credits?api_key=${API_KEY}&${LANGUAGE}`,
+            );
+            const credits = await creditsRes.json();
+            const director = credits.crew.find(
+              (c: any) => c.job === "Director",
+            );
+
+            return {
+              id: m.id,
+              name: m.title,
+              type: "movies",
+              sinopse: m.overview?.trim() || "Sinopse não disponível",
+              genders: [],
+              srcBanner: m.backdrop_path
+                ? `${IMG_URL}/w1280${m.backdrop_path}`
+                : "",
+              srcBannerMobile: m.poster_path
+                ? `${IMG_URL}/w500${m.poster_path}`
+                : "",
+              director: director?.name || "Diretor não disponível",
+              releaseYear: m.release_date
+                ? new Date(m.release_date).getFullYear()
+                : 0,
+              minuteDuration: details.runtime || 0,
+              saved: false,
+            } as Media;
+          } else {
+            const details = await getTvShowDetails(m.id);
+            const creator = details.created_by?.[0];
+
+            return {
+              id: m.id,
+              name: m.name,
+              type: "series",
+              sinopse: m.overview?.trim() || "Sinopse não disponível",
+              genders: [],
+              srcBanner: m.backdrop_path
+                ? `${IMG_URL}/w1280${m.backdrop_path}`
+                : "",
+              srcBannerMobile: m.poster_path
+                ? `${IMG_URL}/w500${m.poster_path}`
+                : "",
+              director: creator?.name|| "Diretor não disponível",
+              releaseYear: m.first_air_date
+                ? new Date(m.first_air_date).getFullYear()
+                : 0,
+              qtdEpisodes: details.number_of_episodes || 0,
+              qtdSeasons: details.number_of_seasons || 0,
+              saved: false,
+            } as Media;
+          }
+        }),
+    );
+
+    return medias;
   } catch (error) {
     console.log(error);
     return [];
