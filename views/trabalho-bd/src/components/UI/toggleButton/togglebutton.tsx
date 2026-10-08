@@ -12,7 +12,7 @@ export const SwitchButton = ({onToggleMediaType} : SwitchButtonProps) => {
   const [alignment, setAlignment] = useState<string | null>("movies");
 
   const handleChange = (
-    event: React.MouseEvent<HTMLElement>,
+    _event: React.MouseEvent<HTMLElement>,
     newAlignment: string | null,
   ) => {
     if (newAlignment != null) setAlignment(newAlignment);

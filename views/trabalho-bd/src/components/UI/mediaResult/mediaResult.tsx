@@ -1,38 +1,8 @@
 import "./mediaResult.scss";
 import { Box, Typography } from "@mui/material";
-import type { Movie, Serie, Media } from "../../../types/media";
+import type { Media } from "../../../types/media";
 import { MediaRate } from "../mediaRate/mediaRate";
 
-const randomMovie: Movie = {
-  name: "Eco do Amanhã",
-  type: "movies",
-  sinopse:
-    "Uma engenheira de som descobre uma gravação misteriosa que antecipa acontecimentos da cidade e precisa decidir se revela o que ouviu.",
-  genders: ["Suspense", "Ficção Científica"],
-  srcBanner: "https://picsum.photos/seed/eco/1920/1080",
-  srcBannerMobile: "https://picsum.photos/seed/eco/800/1200",
-  director: "Luísa Carvalho",
-  releaseYear: 2022,
-  minuteDuration: 112,
-  saved: false,
-};
-
-const randomSerie: Serie = {
-  name: "Ilha dos Ventos",
-  type: "series",
-  sinopse:
-    "Moradores de uma ilha isolada começam a notar que as tempestades seguem um padrão ligado a um segredo guardado há décadas.",
-  genders: ["Drama", "Mistério"],
-  srcBanner: "https://picsum.photos/seed/ilha/1920/1080",
-  srcBannerMobile: "https://picsum.photos/seed/ilha/800/1200",
-  director: "Bruno Matos",
-  releaseYear: 2024,
-  qtdEpisodes: 16,
-  qtdSeasons: 2,
-  saved: false,
-};
-
-const medias: Media[] = [randomMovie, randomSerie];
 
 interface MediaResultProps {
   media: Media;

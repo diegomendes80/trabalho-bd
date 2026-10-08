@@ -16,7 +16,7 @@ export const CarrouselControl = ({
 }: CarrouselControlProps) => {
   return (
     <Box component="div" className="control-root">
-      <Box component="span" className="control__btn previous" onClick={(e) => {onChangePosition(positionHighlited-1)}}>
+      <Box component="span" className="control__btn previous" onClick={() => {onChangePosition(positionHighlited-1)}}>
         <ArrowBackIosNewOutlinedIcon className="btn-icon" />
       </Box>
 

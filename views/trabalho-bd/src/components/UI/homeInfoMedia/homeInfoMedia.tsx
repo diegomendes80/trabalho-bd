@@ -1,7 +1,6 @@
 import "./homeInfoMedia.scss";
 import { Typography, Box } from "@mui/material";
 import type { Media } from "../../../types/media";
-import StarIcon from "@mui/icons-material/Star";
 import { MediaRate } from "../mediaRate/mediaRate";
 
 interface HomeInfoMediaProps {
