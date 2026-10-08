@@ -1,15 +1,19 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import "./App.scss";
 import { Header } from "./components/header/header.tsx";
 import { Home } from "./components/home/home.tsx";
 import { ModalSearch } from "./components/modalSearch/modalSearch.tsx";
 import { Box } from "@mui/material";
 
+
 function App() {
   const [theme, setTheme] = useState("dark");
   const [mediaTypeExibition, setMediaTypeExibition] = useState("movies");
   const [openSearch, setOpenSearch] = useState(false);
+  // const [valueSearched, setValueSearched] = useState("");
 
+
+  
   const toggleMediaTypeExibition = (type: "movies" | "series") => {
     setMediaTypeExibition(type);
 
@@ -30,6 +34,10 @@ function App() {
     });
   };
 
+  // useEffect(() => {
+  //   console.log(valueSearched)
+  // }, [valueSearched])
+
   return (
     <Box component="div" className="app-root">
       <Header
@@ -42,7 +50,7 @@ function App() {
 
       <Home typeMedia={mediaTypeExibition}></Home>
 
-      <ModalSearch openSearch={openSearch} onClickClose={setOpenSearch}/>
+      <ModalSearch openSearch={openSearch} onClickClose={setOpenSearch} />
     </Box>
   );
 }
