@@ -20,9 +20,6 @@ export const Home = ({ typeMedia }: HomeProps) => {
   const [positionHighlighted, setPositionHighlighted] = useState(0);
   const mediaHighlighted = medias[positionHighlighted];
 
-  // if(typeMedia == "series") console.log("serie")
-  // if(typeMedia == "movies") console.log("movie")
-
   useEffect(() => {
     setPositionHighlighted(0);
     const fetch = typeMedia === "series" ? getPopularTvShows : getPopularMovies;
