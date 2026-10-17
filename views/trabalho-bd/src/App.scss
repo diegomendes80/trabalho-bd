@@ -5,4 +5,16 @@
     position: relative;
     z-index: 1;
     
+    .main{
+        width: 65%;
+    }
+}
+
+@media(max-width:1200px){
+    .app-root{
+        .main{
+            width: 100%;
+            
+        }
+    }
 }
