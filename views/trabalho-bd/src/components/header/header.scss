@@ -1,65 +1,88 @@
 @use "../../themes/theme.scss";
 
 .header {
-  background-color: var(--glassPanel);
-  border-bottom: 1px solid var(--inputBorderColor);
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+
+  display: grid;
+  grid-template-columns: 1fr minmax(0, 36rem) 1fr;
   align-items: center;
-  padding: 1rem 2.5rem;
-  height: 12vh;
+  column-gap: 2rem;
+
+  height: 4.5rem;
+  padding: 0 2.5rem;
+
+  background-color: var(--glassPanel);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--inputBorderColor);
+
+  .header__logo {
+    justify-self: start;
+  }
 
   .header__search {
-    width: 35%;
-    // margin-right: auto;
+    width: 100%;
+  }
+
+  .header__actions {
+    justify-self: end;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .header__theme-switch,
+  .header__action-review,
+  .header__profile {
+    display: flex;
+    align-items: center;
   }
 }
 
 @media (max-width: 1200px) {
   .header {
-    row-gap: 1rem;
-    padding:1rem;
+    height: auto;
+    padding: 0.75rem 1rem;
+    grid-template-columns: 1fr auto;
+    row-gap: 0.75rem;
 
     .header__logo {
-      order: 1;
-      flex-basis: 50%;
-      // margin-bottom: 1rem;;
+      grid-column: 1;
+      grid-row: 1;
+    }
+
+    .header__actions {
+      grid-column: 2;
+      grid-row: 1;
+      gap: 0.5rem;
+
+      .header__theme-switch {
+        .toggle-group {
+          .MuiToggleButton-root {
+            padding: 8px 15px;
+            font-size: 12px;
+          }
+        }
+      }
+
+      .header__profile {
+        .MuiAvatar-root.profile-icon {
+          padding: 15px;
+        }
+      }
     }
 
     .header__search {
-      order: 5;
-      flex-basis: 100%;
-    }
-
-    .header__theme-switch {
-      display: flex;
-      justify-content: left;
-      align-items: center;
-      order: 3;
-      flex-basis: 50%;
-    }
-
-    .header__action-review {
-      display: flex;
-      justify-content: right;
-      align-items: center;
-      order: 4;
-      flex-basis: 50%;
-    }
-
-    .header__profile {
-      display: flex;
-      justify-content: right;
-      order: 2;
-      flex-basis: 50%;
-      // margin-bottom: 1rem;;
+      grid-column: 1 / -1;
+      grid-row: 2;
     }
   }
 }
 
-@media (max-width:1200px){
-  .header{
-    height: 25vh;
+@media (max-width: 600px) {
+  .header .header__action-review {
+    display: none;
   }
 }
