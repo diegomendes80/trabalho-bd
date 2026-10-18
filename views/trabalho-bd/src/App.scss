@@ -1,20 +1,22 @@
-@use './themes/theme.scss';
+@use "./themes/theme.scss";
 
-.app-root{
-    background-color: var(--mainBackground);
-    position: relative;
-    z-index: 1;
-    
-    .main{
-        width: 65%;
-    }
+.app-root {
+  background-color: var(--mainBackground);
+  position: relative;
+  z-index: 1;
+
+  .main {
+    display: flex;
+    width: 90%;
+    margin: 0 auto;
+
+  }
 }
 
-@media(max-width:1200px){
-    .app-root{
-        .main{
-            width: 100%;
-            
-        }
+@media (max-width: 1200px) {
+  .app-root {
+    .main {
+      flex-direction: column;
     }
+  }
 }

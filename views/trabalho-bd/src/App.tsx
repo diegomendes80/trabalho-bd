@@ -4,6 +4,7 @@ import { Header } from "./components/header/header.tsx";
 import { Home } from "./components/home/home.tsx";
 import { ModalSearch } from "./components/modalSearch/modalSearch.tsx";
 import { MainContent } from "./components/mainContent/mainContent.tsx";
+import { DashboardSection } from "./components/dashboardSection/dashboardSection.tsx";
 import { Box } from "@mui/material";
 
 
@@ -40,7 +41,7 @@ function App() {
 
       <Box component="div" className="main">
         <MainContent typeMedia={mediaTypeExibition}/>
-
+        <DashboardSection/>
       </Box>
     </Box>
   );

@@ -1,0 +1,50 @@
+@use "../../themes/theme.scss";
+
+.dashboard-reviews-root {
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  .dashboard-reviews__title {
+    color: var(--primary-text);
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 35px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    .reviews-icon {
+      color: var(--action1);
+      font-size: 30px;
+    }
+  }
+
+  .dashboard-review__reviews-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    max-height: 500px;
+    overflow-y: auto;
+    padding-right: 0.5rem;
+
+    // Firefox
+    scrollbar-width: thin;
+    scrollbar-color: #123947 transparent;
+
+    // Chrome, Edge, Safari
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: var(--scrollBar);
+      border-radius: 999px;
+    }
+  }
+}
