@@ -1,0 +1,11 @@
+@use "../../themes/theme.scss";
+
+.dashboard-section-root {
+  width: 30%;
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 1.5rem;
+}

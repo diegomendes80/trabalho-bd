@@ -5,7 +5,7 @@
   flex-direction: column;
   gap: 1rem;
   margin: 1rem 0;
-  width: 100%;
+  width: 85%;
 
   .recomended-section__title {
     display: flex;
@@ -38,9 +38,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
+    
 
     .recomended-section__title {
-      font-size: 30px;
+      gap: .5rem;
+      font-size: 28px;
     }
 
     .recomended-icon {

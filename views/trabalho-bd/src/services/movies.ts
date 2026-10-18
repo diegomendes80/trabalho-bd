@@ -38,7 +38,6 @@ const TV_GENRES: Record<string, number> = {
   Família: 10751,
   Infantil: 10762,
   Mistério: 9648,
-  Notícias: 10763,
   Reality: 10764,
   "Ficção Científica e Fantasia": 10765,
   Novela: 10766,
