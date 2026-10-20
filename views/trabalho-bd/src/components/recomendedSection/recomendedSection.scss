@@ -40,10 +40,9 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
-    
 
     .recomended-section__title {
-      gap: .5rem;
+      gap: 0.5rem;
       font-size: 28px;
     }
 
@@ -58,6 +57,29 @@
 
       .card-media-root {
         width: 150px;
+
+        .card-media-modal {
+          padding: 1rem 0.5rem;
+
+          .card-media-info {
+            .media-modal-genders {
+              font-size: 10px;
+            }
+
+            .media-modal-title {
+              font-size: 20px;
+            }
+          }
+
+          .media-modal-action {
+            width: 90%;
+            .reviewButton,
+            .saveButton {
+              font-size: 12px;
+              justify-content: baseline;
+            }
+          }
+        }
 
         .card-media__info {
           .info__title {
