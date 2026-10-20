@@ -6,7 +6,7 @@ const IMG_URL = "https://image.tmdb.org/t/p";
 const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
 const LANGUAGE = "language=pt-BR";
 
-const MOVIE_GENRES: Record<string, number> = {
+export const MOVIE_GENRES: Record<string, number> = {
   Ação: 28,
   Aventura: 12,
   Animação: 16,
@@ -28,7 +28,7 @@ const MOVIE_GENRES: Record<string, number> = {
   Faroeste: 37,
 };
 
-const TV_GENRES: Record<string, number> = {
+export const TV_GENRES: Record<string, number> = {
   "Ação e Aventura": 10759,
   Animação: 16,
   Comédia: 35,
@@ -144,7 +144,7 @@ export const getMovie = async (name: string): Promise<Media[]> => {
               name: m.title,
               type: "movies",
               sinopse: m.overview?.trim() || "Sinopse não disponível",
-              genders: [],
+              genders: details.genres?.map((g: any) => g.name) || [],
               srcBanner: m.backdrop_path
                 ? `${IMG_URL}/w1280${m.backdrop_path}`
                 : "",
@@ -167,7 +167,7 @@ export const getMovie = async (name: string): Promise<Media[]> => {
               name: m.name,
               type: "series",
               sinopse: m.overview?.trim() || "Sinopse não disponível",
-              genders: [],
+              genders: details.genres?.map((g: any) => g.name) || [],
               srcBanner: m.backdrop_path
                 ? `${IMG_URL}/w1280${m.backdrop_path}`
                 : "",
@@ -234,7 +234,7 @@ export const getRatedMediaByGenre = async (
               name: m.title,
               type: "movies",
               sinopse: m.overview?.trim() || "Sinopse não disponível",
-              genders: [],
+              genders: details.genres?.map((g: any) => g.name) || [],
               srcBanner: m.backdrop_path
                 ? `${IMG_URL}/w1280${m.backdrop_path}`
                 : "",
@@ -257,7 +257,7 @@ export const getRatedMediaByGenre = async (
               name: m.name,
               type: "series",
               sinopse: m.overview?.trim() || "Sinopse não disponível",
-              genders: [],
+              genders: details.genres?.map((g: any) => g.name) || [],
               srcBanner: m.backdrop_path
                 ? `${IMG_URL}/w1280${m.backdrop_path}`
                 : "",
