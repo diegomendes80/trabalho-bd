@@ -3,8 +3,6 @@ import { Box, Typography, type BoxProps } from "@mui/material";
 import { MediaRate } from "../mediaRate/mediaRate";
 import type { Media } from "../../../types/media";
 import { useState } from "react";
-import { MOVIE_GENRES } from "../../../services/movies";
-import { TV_GENRES } from "../../../services/movies";
 import { ActionButton } from "../actionButton/actionButton";
 import DriveFileRenameOutlineOutlinedIcon from "@mui/icons-material/DriveFileRenameOutlineOutlined";
 import BookmarkBorderOutlinedIcon from "@mui/icons-material/BookmarkBorderOutlined";
