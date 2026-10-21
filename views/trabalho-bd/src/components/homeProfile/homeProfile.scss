@@ -1,0 +1,11 @@
+@use "../../themes/theme.scss";
+
+.home-profile-root {
+  .header {
+    .header__search,
+    .header__actions,
+    .header__profile {
+      display: none;
+    }
+  }
+}

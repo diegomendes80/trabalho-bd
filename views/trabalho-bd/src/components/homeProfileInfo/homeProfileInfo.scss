@@ -1,0 +1,143 @@
+@use "../../themes/theme.scss";
+
+.home-profile-info-root {
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+
+  .home-profile-info__presentation {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+
+    .presentation__bio {
+      display: flex;
+      flex-direction: column;
+      width: 60%;
+
+      .bio__name {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 50px;
+        color: var(--primary-text);
+        letter-spacing: 2px;
+      }
+
+      .bio__usercode {
+        font-family: "JetBrains Mono", sans-serif;
+        color: var(--action1);
+      }
+
+      .bio__phrase {
+        margin: 1rem 0;
+        font-family: "JetBrains Mono", sans-serif;
+        color: var(--secondary-text);
+        font-weight: 500;
+      }
+
+      .bio__since {
+        font-family: "JetBrains Mono", sans-serif;
+        color: var(--secondary-text);
+        font-size: 12px;
+      }
+    }
+  }
+
+  .home-profile-info__cards {
+    display: flex;
+    width: 90%;
+    justify-content: space-between;
+
+    .cards__card {
+      width: 200px;
+      height: 120px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      background-color: var(--homeProfileCardBg);
+      border: 1px solid var(--homeProfileCardBorder);
+      border-radius: 1rem;
+
+      font-family: "JetBrains Mono", sans-serif;
+      font-weight: 600;
+      color: var(--primary-text);
+      text-transform: uppercase;
+
+      .card__icon {
+        margin-bottom: 0.5rem;
+        font-size: 25px;
+      }
+
+      .card__value {
+        font-size: 25px;
+        font-weight: 600;
+      }
+
+      .card__text {
+        color: var(--secondary-text);
+        font-size: 12px;
+        letter-spacing: 2px;
+      }
+    }
+
+    .reviews,
+    .saveds {
+      .card__icon,
+      .card__value {
+        color: var(--action1);
+      }
+    }
+
+    .average {
+      .card__icon,
+      .card__value {
+        color: var(--highlight);
+      }
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .home-profile-info-root {
+    justify-content: left;
+    gap: 2rem;
+
+    .home-profile-avatar-root {
+      width: 120px;
+      height: 120px;
+    }
+
+    .home-profile-info__presentation {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+
+      .presentation__bio {
+        width: 100%;
+
+        .bio__name {
+          font-size: 40px;
+        }
+
+        .bio__phrase {
+          font-size: 14px;
+        }
+      }
+    }
+
+    .home-profile-info__cards {
+      flex-wrap: wrap;
+      width: 100%;
+        gap: 1rem;
+
+      .cards__card {
+        width: 160px;
+        height: 120px;
+      }
+    }
+  }
+}
