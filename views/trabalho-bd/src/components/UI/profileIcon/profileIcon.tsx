@@ -3,10 +3,10 @@ import Avatar from "@mui/material/Avatar";
 
 interface ProfileIconProps {
   name: string;
-  onHandleOpenProfile: (type: string) => void;
+  onClickProfile: () => void;
 }
 
-export const ProfileIcon = ({ name, onHandleOpenProfile }: ProfileIconProps) => {
+export const ProfileIcon = ({ name, onClickProfile }: ProfileIconProps) => {
   let initials: string[] = [];
 
   for (const c of name) {
@@ -15,7 +15,7 @@ export const ProfileIcon = ({ name, onHandleOpenProfile }: ProfileIconProps) => 
   }
 
   return (
-    <Avatar alt="Profile Icon" className="profile-icon" onClick={() => {onHandleOpenProfile(name)}}>
+    <Avatar alt="Profile Icon" className="profile-icon" onClick={() => {onClickProfile()}}>
       {initials.join("")}
     </Avatar>
   );

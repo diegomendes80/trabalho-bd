@@ -9,6 +9,10 @@
 
   text-shadow: var(--white-ice);
 
+  &:hover{
+    cursor: pointer;
+  }
+
   .logo__text--highlight {
     color: var(--action1);
     text-shadow: var(--cyan-ice);

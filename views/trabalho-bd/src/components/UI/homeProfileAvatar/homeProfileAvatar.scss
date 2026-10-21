@@ -1,0 +1,17 @@
+@use '../../../themes/theme.scss';
+
+.home-profile-avatar-root{
+    width: 150px;
+    height: 150px;
+    border-radius: 1rem;
+    background-color: var(--homeProfileAvatarBg);
+    border: 1px solid var(--homeProfileAvatarBorder);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 60px;
+    color: var(--action1);
+}

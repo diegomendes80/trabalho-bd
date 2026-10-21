@@ -8,34 +8,36 @@ import { Logo } from "../UI/logo/logo.tsx";
 import { SearchInput } from "../UI/searchInput/searchInput.tsx";
 
 interface HeaderProps {
-  onToggleMediaType: (type: "movies" | "series") => void;
-  onHandleOpenProfile: (type: string) => void;
-  onClickInputSearch: (type: boolean) => void;
+  onToggleMediaType?: (type: "movies" | "series") => void;
+  onClickInputSearch?: (type: boolean) => void;
+  onClickProfile?: () => void;
+  onClickLogo?: () => void;
 }
 
 export const Header = ({
   onToggleMediaType,
-  onHandleOpenProfile,
   onClickInputSearch,
+  onClickProfile,
+  onClickLogo
 }: HeaderProps) => {
   return (
     <Box component="header" className="header">
-      <Box component="div" className="header__logo">
-        <Logo />
+      <Box component="div" className="header__logo" onClick={() => onClickLogo?.()}>
+        <Logo/>
       </Box>
 
       <Box component="div" className="header__search">
         <SearchInput
           placeholder="Buscar no catálogo..."
           onFocus={() => {
-            onClickInputSearch(true);
+            onClickInputSearch?.(true);
           }}
         />
       </Box>
 
       <Box component="div" className="header__actions">
         <Box component="div" className="header__theme-switch">
-          <SwitchButton onToggleMediaType={onToggleMediaType} />
+          <SwitchButton onToggleMediaType={(t) => onToggleMediaType?.(t)} />
         </Box>
 
         <Box component="div" className="header__action-review">
@@ -50,7 +52,7 @@ export const Header = ({
         <Box component="div" className="header__profile">
           <ProfileIcon
             name="Sherlock"
-            onHandleOpenProfile={onHandleOpenProfile}
+            onClickProfile={onClickProfile ?? (() => {})}
           />
         </Box>
       </Box>
