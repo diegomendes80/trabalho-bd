@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import type { Media } from "../../types/media";
 import type { User } from "../../types/user";
 import type { Review } from "../../types/review";
+import { ProfileStash } from "../../components/profileStash/profileStash";
 
 const interestelar: Media = {
   name: "Interestelar",
@@ -76,6 +77,7 @@ export const Profile = () => {
   return (
     <Box component="div" className="profile-root">
       <HomeProfile onClickLogo={handleClickLogo} user={defaultUser}/>
+      <ProfileStash savedMedias={defaultUser.savedMedias} userReviews={defaultUser.reviews}/>
     </Box>
   );
 };
