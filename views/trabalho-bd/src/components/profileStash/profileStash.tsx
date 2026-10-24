@@ -1,6 +1,7 @@
 import './profileStash.scss';
 import { Box } from '@mui/material';
 import { SavedList } from '../savedList/savedList';
+import { UserReviews } from '../userReviews/userReviews';
 import type { Media } from '../../types/media';
 import type { Review } from '../../types/review';
 
@@ -13,6 +14,7 @@ export const ProfileStash = ({savedMedias, userReviews} : ProfileStashProps) => 
     return(
         <Box component={"div"} className='profile-stash-root'>
             <SavedList savedMedias={savedMedias}/>
+            <UserReviews userReviews={userReviews}/>
         </Box>
     )
 }
