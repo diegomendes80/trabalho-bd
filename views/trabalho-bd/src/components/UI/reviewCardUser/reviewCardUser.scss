@@ -1,0 +1,123 @@
+@use "../../../themes/theme.scss";
+
+.review-card-user-root {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  background-color: var(--dashBoardCommunityBg);
+  border-radius: 1.5rem;
+  border: 1px solid var(--dashBoardCommunityBorder);
+  padding: 1rem;
+
+  .review-card__poster {
+    width: 90px;
+    object-fit: cover;
+  }
+
+  .review-card__info-and-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    .info-media {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+
+      .info__media-title {
+        color: var(--primary-text);
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 30px;
+        margin: 0;
+        padding: 0;
+        line-height: 1;
+      }
+
+      .info__user {
+        display: flex;
+        gap: 20px;
+        .user-p {
+          color: var(--secondary-text);
+          font-family: "JetBrains Mono", sans-serif;
+          font-size: 13px;
+        }
+      }
+    }
+
+    .text__review {
+      color: var(--secondary-text);
+      font-family: "JetBrains Mono", sans-serif;
+      font-size: 15px;
+    }
+
+    .review-card-control {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 1rem;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+
+      .icon {
+        width: 35px;
+        height: 35px;
+        color: var(--secondary-text);
+        padding: 0.5rem;
+        border-radius: 50%;
+      }
+    }
+    .control__edit-review {
+      &:hover {
+        background-color: var(--editReviewIconBgHover);
+        color: var(--editReviewIconHover);
+      }
+    }
+    .control__remove-review {
+      &:hover {
+        background-color: var(--removeReviewIconBgHover);
+        color: var(--removeReviewIconHover);
+      }
+    }
+  }
+
+  .review-card__rate {
+    margin-left: auto;
+    .media__nota {
+      font-size: 15px;
+    }
+
+    .icon-nota {
+      font-size: 20px;
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .review-card-user-root {
+ 
+    .review-card__poster {
+      width: 70px;
+    }
+
+    .review-card__info-and-text {
+      .info-media {
+        .info__media-title {
+          font-size: 28px;
+        }
+
+        .info__user {
+          .user-p {
+            font-size: 11px;
+          }
+        }
+      }
+
+      .text__review {
+        margin-top: .5rem;
+        font-size: 14px;
+      }
+    }
+  }
+
+}
