@@ -35,15 +35,15 @@ export const ReviewCardUser = ({ review }: ReviewCardUserProps) => {
             {review.text}
           </Typography>
 
+          <Box component="span" className="review-card__rate">
+            <MediaRate rate={review.rate} />
+          </Box>
+
           <Box component={"div"} className="review-card-control">
             <EditOutlinedIcon className="control__edit-review icon" />
             <DeleteOutlinedIcon className="control__remove-review icon" />
           </Box>
         </Box>
-      </Box>
-
-      <Box component="span" className="review-card__rate">
-        <MediaRate rate={review.rate} />
       </Box>
     </Box>
   );

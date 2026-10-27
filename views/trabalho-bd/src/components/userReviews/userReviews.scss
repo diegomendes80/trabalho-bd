@@ -32,5 +32,13 @@
 @media(max-width:1200px){
     .user-reviews-root{
         width: 100%;
+
+        .user-reviews__title{
+          font-size: 35px;
+
+          .user-reviews__icon{
+            font-size: 30px;
+          }
+        }
     }
 }
