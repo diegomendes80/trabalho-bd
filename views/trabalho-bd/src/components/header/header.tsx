@@ -12,23 +12,33 @@ interface HeaderProps {
   onClickInputSearch?: (type: boolean) => void;
   onClickProfile?: () => void;
   onClickLogo?: () => void;
+  searchValue?: string;
+  onChangeSearch?: (type: string) => void;
 }
 
 export const Header = ({
   onToggleMediaType,
   onClickInputSearch,
   onClickProfile,
-  onClickLogo
+  onClickLogo,
+  searchValue,
+  onChangeSearch,
 }: HeaderProps) => {
   return (
     <Box component="header" className="header">
-      <Box component="div" className="header__logo" onClick={() => onClickLogo?.()}>
-        <Logo/>
+      <Box
+        component="div"
+        className="header__logo"
+        onClick={() => onClickLogo?.()}
+      >
+        <Logo />
       </Box>
 
       <Box component="div" className="header__search">
         <SearchInput
           placeholder="Buscar no catálogo..."
+          value={searchValue}
+          onChange={(e) => onChangeSearch?.(e.target.value)}
           onFocus={() => {
             onClickInputSearch?.(true);
           }}

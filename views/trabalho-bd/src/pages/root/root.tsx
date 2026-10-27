@@ -7,10 +7,10 @@ import { MainContent } from "../../components/mainContent/mainContent";
 import { DashboardSection } from "../../components/dashboardSection/dashboardSection";
 import { useNavigate } from "react-router-dom";
 
-
 export const Root = () => {
   const [mediaTypeExibition, setMediaTypeExibition] = useState("movies");
   const [openSearch, setOpenSearch] = useState(false);
+  const [searchValue, setSearchValue] = useState("");
   const navigate = useNavigate();
 
   const toggleMediaTypeExibition = (type: "movies" | "series") => {
@@ -25,8 +25,7 @@ export const Root = () => {
 
   const handleClickLogo = () => {
     navigate("/");
-
-  }
+  };
 
   return (
     <Box component="div" className="root">
@@ -35,11 +34,18 @@ export const Root = () => {
         onClickProfile={handleOpenProfile}
         onClickInputSearch={setOpenSearch}
         onClickLogo={handleClickLogo}
+        searchValue={searchValue}
+        onChangeSearch={setSearchValue}
       ></Header>
 
       <Home typeMedia={mediaTypeExibition}></Home>
 
-      <ModalSearch openSearch={openSearch} onClickClose={setOpenSearch} />
+      <ModalSearch
+        openSearch={openSearch}
+        onClickClose={setOpenSearch}
+        searchValue={searchValue}
+        onChangeSearch={setSearchValue}
+      />
 
       <Box component="div" className="main">
         <MainContent typeMedia={mediaTypeExibition} />

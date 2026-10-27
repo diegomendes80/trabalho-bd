@@ -1,5 +1,5 @@
 import "./modalSearch.scss";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Box } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import { SearchInput } from "../UI/searchInput/searchInput";
@@ -10,26 +10,40 @@ import { getMovie } from "../../services/movies";
 interface ModalSearchProps {
   openSearch: boolean;
   onClickClose: (close: boolean) => void;
- 
+  searchValue: string;
+  onChangeSearch: (type: string) => void;
 }
 
-export const ModalSearch = ({ openSearch, onClickClose }: ModalSearchProps) => {
-  const [valueSearched, setValueSearched] = useState("");
+export const ModalSearch = ({
+  openSearch,
+  onClickClose,
+  searchValue,
+  onChangeSearch,
+}: ModalSearchProps) => {
   const [medias, setMedias] = useState<Media[]>([]);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    if (valueSearched.trim().length == 0) {
+    if (!openSearch) return;
+
+    const el = inputRef.current;
+    el?.focus();
+    el?.setSelectionRange(el.value.length, el.value.length);
+  }, [openSearch]);
+
+  useEffect(() => {
+    if (searchValue.trim().length == 0) {
       setMedias([]);
       return;
     }
 
     const timer = setTimeout(async () => {
-      const results = await getMovie(valueSearched);
+      const results = await getMovie(searchValue);
       setMedias(results);
     }, 50);
 
     return () => clearTimeout(timer);
-  }, [valueSearched]);
+  }, [searchValue]);
 
   return (
     <Box
@@ -48,15 +62,17 @@ export const ModalSearch = ({ openSearch, onClickClose }: ModalSearchProps) => {
         <Box component="div" className="result__search-input">
           <SearchInput
             placeholder="Buscar no catálogo..."
+            value={searchValue}
+            inputRef={inputRef}
             onChange={(e) => {
-              setValueSearched(e.target.value);
+              onChangeSearch?.(e.target.value);
             }}
           />
         </Box>
 
         <Box component="div" className="result__media-container">
           {medias.map((m, i) => {
-            return <MediaResult key={i} media={m}/>;
+            return <MediaResult key={i} media={m} />;
           })}
         </Box>
       </Box>
