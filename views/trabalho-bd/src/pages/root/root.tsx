@@ -27,6 +27,7 @@ export const Root = () => {
     navigate("/");
   };
 
+
   return (
     <Box component="div" className="root">
       <Header

@@ -1,0 +1,98 @@
+@use "../../themes/theme.scss";
+
+.home-media-page-info-root {
+  display: flex;
+  align-items: stretch;
+  gap: 2rem;
+
+  .page-info__banner {
+    position: relative;
+    width: 250px;
+    aspect-ratio: 2/3;
+    flex-shrink: 0;
+    overflow: hidden;
+    border-radius: 0.75rem;
+
+    .banner__bg {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+  }
+
+  .page-info__content {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.5rem;
+
+    .content__title {
+      font-family: "Bebas Neue", sans-serif;
+      color: var(--primary-text);
+      font-size: 60px;
+      letter-spacing: 1px;
+    }
+
+    .content__details {
+      display: flex;
+      gap: 1rem;
+
+      .details__release-year,
+      .details__duration {
+        display: flex;
+        align-items: center;
+        gap: 0.2rem;
+        font-family: "JetBrains Mono", sans-serif;
+        color: var(--secondary-text);
+        font-size: 15px;
+
+        .details-icon {
+          font-size: 14px;
+        }
+      }
+    }
+
+    .content__genders {
+      display: flex;
+      gap: 1rem;
+      margin: 0.5rem 0;
+
+      .genders__value {
+        background-color: var(--gendersBoxBG);
+        border: 1px solid var(--gendersBoxBorder);
+        padding: 5px 15px;
+        border-radius: 15px;
+        color: var(--secondary-text);
+        font-family: "JetBrains Mono";
+        font-size: 12px;
+      }
+    }
+
+    .content__sinopse {
+      color: var(--secondary-text);
+      font-family: "JetBrains Mono";
+    }
+
+    .content__actions {
+      margin-top: auto;
+      display: flex;
+      gap: 1rem;
+
+      .save-to-list {
+        background-color: var(--inputBackground);
+        color: var(--primary-text);
+        border: 1px solid var(--primary-text);
+      }
+
+      .saved {
+        background-color: var(--savedMediaButtonBackground);
+        color: var(--action1);
+        border: 1px solid var(--action1);
+      }
+    }
+  }
+}

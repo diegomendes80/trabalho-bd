@@ -1,0 +1,21 @@
+.media-root {
+  
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+
+    .header__search {
+      display: none;
+    }
+
+    .header__actions {
+      .header__theme-switch,
+      .header__action-review {
+        display: none;
+      }
+    }
+  }
+
+  
+}

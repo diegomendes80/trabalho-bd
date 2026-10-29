@@ -3,17 +3,20 @@ import { Box, Typography, type BoxProps } from "@mui/material";
 import { MediaRate } from "../mediaRate/mediaRate";
 import type { Media } from "../../../types/media";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { ActionButton } from "../actionButton/actionButton";
 import DriveFileRenameOutlineOutlinedIcon from "@mui/icons-material/DriveFileRenameOutlineOutlined";
 import BookmarkBorderOutlinedIcon from "@mui/icons-material/BookmarkBorderOutlined";
 
 interface CardMediaProps extends BoxProps {
   media: Media;
+  
 }
 
 export const CardMedia = ({ media, className, ...props }: CardMediaProps) => {
   const [openFocus, setOpenFocus] = useState(false);
   const mainGenders = media.genders.slice(0, 2);
+  const navigate = useNavigate();
 
   return (
     <Box
@@ -46,6 +49,7 @@ export const CardMedia = ({ media, className, ...props }: CardMediaProps) => {
           <ActionButton
             icon={<DriveFileRenameOutlineOutlinedIcon />}
             className="reviewButton"
+            onClick={() => navigate(`/media/${media.name}`, {state: {media}})}
           >
             Resenhar
           </ActionButton>
