@@ -1,6 +1,4 @@
 .media-root {
-  
-
   .header {
     display: flex;
     justify-content: space-between;
@@ -17,5 +15,31 @@
     }
   }
 
-  
+  .media__stash {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    align-items: flex-start;
+    margin-top: 4rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  .media-root {
+    margin-bottom: 3rem;
+    .media__stash {
+      gap: 2rem;
+      width: 90%;
+      flex-direction: column;
+
+      .technical-sheet-root{
+        order: 1;
+      }
+
+      .reviews-media-page-root{
+        order: 2;
+
+      }
+    }
+  }
 }
