@@ -5,6 +5,8 @@ import "./mediaPage.scss";
 import { Box } from "@mui/material";
 import { Header } from "../../components/header/header";
 import { HomeMediaPage } from "../../components/homeMediaPage/homeMediaPage";
+import { ReviewsMediaPage } from "../../components/reviewsMediaPage/reviewsMediaPage";
+import { TechnicalSheet } from "../../components/UI/technicalSheet/technicalSheet";
 
 export const MediaPage = () => {
   const { name } = useParams();
@@ -21,6 +23,10 @@ export const MediaPage = () => {
     <Box component={"div"} className="media-root">
       <Header />
       <HomeMediaPage media={media}/>
+      <Box component={"div"} className="media__stash">
+        <ReviewsMediaPage/>
+        <TechnicalSheet media={media}/>
+      </Box>
     </Box>
   );
 };
