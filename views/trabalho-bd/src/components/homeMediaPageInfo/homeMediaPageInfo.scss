@@ -96,3 +96,40 @@
     }
   }
 }
+
+@media (max-width: 1200px) {
+  .home-media-page-info-root {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    .page-info__content {
+      width: 100%;
+      text-align: center;
+      align-items: center;
+
+      .content__title {
+        font-size: 50px;
+      }
+
+      .content__details {
+        .details__release-year,
+        .details__duration {
+            font-size: 12px;
+        }
+      }
+
+      .content__actions {
+        margin: 2rem 0;
+
+        .MuiButton-root.action-button {
+          font-size: 14px;
+          padding: 10px 15px;
+
+          .MuiSvgIcon-root {
+            font-size: 16px;
+          }
+        }
+      }
+    }
+  }
+}

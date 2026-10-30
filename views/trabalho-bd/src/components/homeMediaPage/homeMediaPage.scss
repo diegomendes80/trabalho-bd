@@ -9,6 +9,8 @@
   margin-top: 4rem;
 
   .home-media-page__back {
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
     .back__text {
       display: flex;
       align-items: center;
@@ -17,5 +19,11 @@
       font-family: "JetBranins Mono", sans-serif;
       color: var(--secondary-text);
     }
+  }
+}
+
+@media (max-width: 1200px) {
+  .home-media-page-root {
+    align-items: center;
   }
 }
