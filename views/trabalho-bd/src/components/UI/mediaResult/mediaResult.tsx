@@ -2,15 +2,18 @@ import "./mediaResult.scss";
 import { Box, Typography } from "@mui/material";
 import type { Media } from "../../../types/media";
 import { MediaRate } from "../mediaRate/mediaRate";
-
+import { useNavigate } from "react-router-dom";
 
 interface MediaResultProps {
   media: Media;
 }
 
 export const MediaResult = ({ media }: MediaResultProps) => {
+
+  const navigate = useNavigate();
   return (
-    <Box component="div" className="mediaResult-root">
+            
+    <Box component="div" className="mediaResult-root" onClick={() => navigate(`/media/${media.name}`, {state: {media}})}>
       {media.srcBannerMobile && (
         <Box
           component="img"
