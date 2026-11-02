@@ -72,7 +72,7 @@ export const ModalSearch = ({
 
         <Box component="div" className="result__media-container">
           {medias.map((m, i) => {
-            return <MediaResult key={i} media={m} />;
+            return <MediaResult key={i} media={m}/>;
           })}
         </Box>
       </Box>

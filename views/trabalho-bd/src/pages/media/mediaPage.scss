@@ -1,4 +1,6 @@
 .media-root {
+  margin-bottom: 3rem;
+
   .header {
     display: flex;
     justify-content: space-between;
@@ -26,19 +28,17 @@
 
 @media (max-width: 1200px) {
   .media-root {
-    margin-bottom: 3rem;
     .media__stash {
       gap: 2rem;
       width: 90%;
       flex-direction: column;
 
-      .technical-sheet-root{
+      .technical-sheet-root {
         order: 1;
       }
 
-      .reviews-media-page-root{
+      .reviews-media-page-root {
         order: 2;
-
       }
     }
   }
