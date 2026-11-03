@@ -5,7 +5,7 @@ import type { Media } from "../../../types/media";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ActionButton } from "../actionButton/actionButton";
-import DriveFileRenameOutlineOutlinedIcon from "@mui/icons-material/DriveFileRenameOutlineOutlined";
+import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import BookmarkBorderOutlinedIcon from "@mui/icons-material/BookmarkBorderOutlined";
 
 interface CardMediaProps extends BoxProps {
@@ -47,11 +47,11 @@ export const CardMedia = ({ media, className, ...props }: CardMediaProps) => {
 
         <Box component="div" className="media-modal-action">
           <ActionButton
-            icon={<DriveFileRenameOutlineOutlinedIcon />}
+            icon={<InfoOutlinedIcon />}
             className="reviewButton"
             onClick={() => navigate(`/media/${media.name}`, {state: {media}})}
           >
-            Resenhar
+            Detalhes
           </ActionButton>
           <ActionButton
             icon={<BookmarkBorderOutlinedIcon />}
