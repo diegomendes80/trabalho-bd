@@ -1,5 +1,5 @@
 import { useParams, useLocation } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import type { Media } from "../../types/media";
 import "./mediaPage.scss";
 import { Box } from "@mui/material";
@@ -8,10 +8,12 @@ import { HomeMediaPage } from "../../components/homeMediaPage/homeMediaPage";
 import { ReviewsMediaPage } from "../../components/reviewsMediaPage/reviewsMediaPage";
 import { TechnicalSheet } from "../../components/UI/technicalSheet/technicalSheet";
 
+
 export const MediaPage = () => {
   const { name } = useParams();
   const location = useLocation();
   const media = (location.state as { media?: Media } | null)?.media;
+  const [openReview, setOpenReview] = useState(false);
 
   useEffect(() => {
     if (media) return;
@@ -19,13 +21,20 @@ export const MediaPage = () => {
 
   if (!media) return null;
 
+  
+
   return (
     <Box component={"div"} className="media-root">
       <Header />
-      <HomeMediaPage media={media}/>
+      <HomeMediaPage
+        media={media}
+        onClickClose={setOpenReview}
+        openReview={openReview}
+        isEditing={false} //mudar depois, se o filme ja tiver uma resenha do mesmo usuario
+      />
       <Box component={"div"} className="media__stash">
-        <ReviewsMediaPage/>
-        <TechnicalSheet media={media}/>
+        <ReviewsMediaPage />
+        <TechnicalSheet media={media} />
       </Box>
     </Box>
   );

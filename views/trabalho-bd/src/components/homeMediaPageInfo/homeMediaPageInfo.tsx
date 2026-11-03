@@ -10,9 +10,10 @@ import BookmarkBorderOutlinedIcon from '@mui/icons-material/BookmarkBorderOutlin
 
 interface HomeMediaPageInfoProps {
   media: Media;
+  onClickReview: (open: boolean) => void;
 }
 
-export const HomeMediaPageInfo = ({ media }: HomeMediaPageInfoProps) => {
+export const HomeMediaPageInfo = ({ media, onClickReview }: HomeMediaPageInfoProps) => {
   return (
     <Box component={"div"} className="home-media-page-info-root">
       <Box component={"div"} className="page-info__banner">
@@ -61,7 +62,7 @@ export const HomeMediaPageInfo = ({ media }: HomeMediaPageInfoProps) => {
         </Box>
 
         <Box component={"div"} className="content__actions">
-            <ActionButton icon={<RateReviewOutlinedIcon/>} className="review">Deixar Resenha</ActionButton>
+            <ActionButton icon={<RateReviewOutlinedIcon/>} className="review" onClick={() => onClickReview(true)}>Deixar Resenha</ActionButton>
             <ActionButton icon={<BookmarkBorderOutlinedIcon/>} className="save-to-list">+ Minha Lista</ActionButton>
 
         </Box>
