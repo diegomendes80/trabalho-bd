@@ -56,7 +56,7 @@ export const Home = ({ typeMedia }: HomeProps) => {
   return (
     <Box component="div" className="home">
       <ModalReview
-        isEditing={false}
+        isEditing={false} //mudar depois, se o filme ja tiver uma resenha do mesmo usuario
         openReview={openReview}
         onClickClose={setOpenReview}
         media={mediaHighlighted}
