@@ -8,12 +8,13 @@ interface HomeActionMediaProps {
   id: number;
   saved: boolean;
   setMediaSaved: (id: number) => void;
+  onClickReview: (open: boolean) => void;
 }
 
-export const HomeActionMedia = ({ id, saved, setMediaSaved }: HomeActionMediaProps) => {
+export const HomeActionMedia = ({ id, saved, setMediaSaved, onClickReview }: HomeActionMediaProps) => {
   return (
     <Box component="div" className="action-media-root">
-      <ActionButton icon={<RateReviewOutlinedIcon />} className="rate-button">
+      <ActionButton icon={<RateReviewOutlinedIcon />} className="rate-button" onClick={() => onClickReview(true)}>
         Deixar Resenha
       </ActionButton>
       <ActionButton

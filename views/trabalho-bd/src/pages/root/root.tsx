@@ -41,6 +41,8 @@ export const Root = () => {
 
       <Home typeMedia={mediaTypeExibition}></Home>
 
+   
+
       <ModalSearch
         openSearch={openSearch}
         onClickClose={setOpenSearch}

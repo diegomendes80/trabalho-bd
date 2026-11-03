@@ -7,6 +7,7 @@ import { BackgroundMovie } from "../UI/backgroundMovie/backgroundMovie";
 import { HomeInfoMedia } from "../UI/homeInfoMedia/homeInfoMedia";
 import { HomeActionMedia } from "../UI/homeActionMedia/homeActionMedia";
 import { Box } from "@mui/material";
+import { ModalReview } from "../../components/modalReview/modalReview";
 import { CarrouselControl } from "../UI/carrouselControl/carrouselControl";
 
 export const MAX_HIGHLITHED_MEDIAS = 5;
@@ -18,6 +19,7 @@ interface HomeProps {
 export const Home = ({ typeMedia }: HomeProps) => {
   const [medias, setMedias] = useState<Media[]>([]);
   const [positionHighlighted, setPositionHighlighted] = useState(0);
+  const [openReview, setOpenReview] = useState(false); 
   const mediaHighlighted = medias[positionHighlighted];
 
   useEffect(() => {
@@ -32,13 +34,14 @@ export const Home = ({ typeMedia }: HomeProps) => {
   };
 
   useEffect(() => {
-    if (medias.length === 0) return;
+    if (medias.length === 0 || openReview) return;
+
     const id = setInterval(() => {
       setNewHighlited(positionHighlighted + 1);
     }, 5000);
 
     return () => clearInterval(id);
-  }, [positionHighlighted, medias.length]);
+  }, [openReview, positionHighlighted, medias.length]);
 
   const setMediaSaved = (id: number) => {
     setMedias((prev) =>
@@ -52,6 +55,13 @@ export const Home = ({ typeMedia }: HomeProps) => {
 
   return (
     <Box component="div" className="home">
+      <ModalReview
+        isEditing={false}
+        openReview={openReview}
+        onClickClose={setOpenReview}
+        media={mediaHighlighted}
+      />
+
       <Box component="div" className="home__bg-movie">
         <BackgroundMovie
           srcBanner={mediaHighlighted.srcBanner}
@@ -65,6 +75,7 @@ export const Home = ({ typeMedia }: HomeProps) => {
 
       <Box component="div" className="home__action">
         <HomeActionMedia
+          onClickReview={setOpenReview}
           id={positionHighlighted}
           setMediaSaved={setMediaSaved}
           saved={mediaHighlighted.saved}
