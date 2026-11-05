@@ -114,14 +114,6 @@ O front-end está concluído. As próximas etapas envolvem:
 - [ ] Integração das funcionalidades da interface com o back-end.
 - [ ] Testes e disponibilização da versão beta.
 
-## 👨‍💻 Autor
-
-**Diego Mendes**
-
-Estudante de Engenharia de Computação, interessado em desenvolvimento de software, sistemas embarcados e engenharia aplicada.
-
-- GitHub: [@diegomendes80](https://github.com/diegomendes80)
-- LinkedIn: [Meu perfil](https://www.linkedin.com/)
 
 ---
 
