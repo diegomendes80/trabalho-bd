@@ -1,5 +1,5 @@
 import { Box } from "@mui/material";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Header } from "../../components/header/header";
 import { Home } from "../../components/home/home";
 import { ModalSearch } from "../../components/modalSearch/modalSearch";
@@ -23,6 +23,14 @@ export const Root = () => {
     setOpenLogSearch(false);
     setOpenReview(true);
   };
+
+  useEffect(() => {
+    if (openReview || openLogSearch || openSearch) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+  }, [openReview, openLogSearch, openSearch]);
 
   const toggleMediaTypeExibition = (type: "movies" | "series") => {
     setMediaTypeExibition(type);
