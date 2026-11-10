@@ -14,6 +14,7 @@ interface HeaderProps {
   onClickInputSearch?: (type: boolean) => void;
   searchValue?: string;
   onChangeSearch?: (type: string) => void;
+  onClickLog?: (type: boolean) => void;
 }
 
 export const Header = ({
@@ -21,6 +22,7 @@ export const Header = ({
   onClickInputSearch,
   searchValue,
   onChangeSearch,
+  onClickLog
 }: HeaderProps) => {
 
 
@@ -54,7 +56,7 @@ export const Header = ({
 
         <Box component="div" className="header__action-review">
           <ActionButton
-            onClick={() => console.log("Log Resenha clicked")}
+            onClick={() => onClickLog?.(true)}
             icon={<AddOutlinedIcon />}
           >
             Log Resenha

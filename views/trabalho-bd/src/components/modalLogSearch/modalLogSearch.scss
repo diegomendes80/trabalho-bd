@@ -1,0 +1,88 @@
+@use "../../themes/theme.scss";
+
+.modal-log-search-container {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background-color: var(--overlayBackground);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .modal-log-search-root {
+    width: 40%;
+    height: 80%;
+    padding: 1rem;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    border: 1px solid var(--modalSearchBorderColor);
+    background-color: var(--modalSearchBackground);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+
+    .log-search__close {
+      color: var(--modalSearchCloseBtn);
+      width: 100%;
+      display: flex;
+      justify-content: right;
+
+      .close-icon {
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+
+    .log-search__header {
+      display: flex;
+      flex-direction: column;
+
+      .header__title {
+        font-family: "Bebas Neue", sans-serif;
+        color: var(--primary-text);
+        font-size: 35px;
+      }
+
+      .header__subtitle {
+        font-family: "JetBrains Mono", sans-serif;
+        color: var(--secondary-text);
+        font-size: 12px;
+      }
+    }
+
+    .log-search__media-results {
+      padding: 0 5px;
+      flex: 1;
+      min-height: 0;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+
+      // Firefox
+      scrollbar-width: thin;
+      scrollbar-color: #123947 transparent;
+
+      // Chrome, Edge, Safari
+      &::-webkit-scrollbar {
+        width: 6px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: transparent;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: var(--scrollBar);
+        border-radius: 999px;
+      }
+    }
+  }
+}
+
+.disable{
+    display: none;
+}
