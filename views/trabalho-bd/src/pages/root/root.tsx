@@ -5,13 +5,12 @@ import { Home } from "../../components/home/home";
 import { ModalSearch } from "../../components/modalSearch/modalSearch";
 import { MainContent } from "../../components/mainContent/mainContent";
 import { DashboardSection } from "../../components/dashboardSection/dashboardSection";
-import { useNavigate } from "react-router-dom";
+
 
 export const Root = () => {
   const [mediaTypeExibition, setMediaTypeExibition] = useState("movies");
   const [openSearch, setOpenSearch] = useState(false);
   const [searchValue, setSearchValue] = useState("");
-  const navigate = useNavigate();
 
   const toggleMediaTypeExibition = (type: "movies" | "series") => {
     setMediaTypeExibition(type);
@@ -21,17 +20,11 @@ export const Root = () => {
 
 
 
-  const handleClickLogo = () => {
-    navigate("/");
-  };
-
-
   return (
     <Box component="div" className="root">
       <Header
         onToggleMediaType={toggleMediaTypeExibition}
         onClickInputSearch={setOpenSearch}
-        onClickLogo={handleClickLogo}
         searchValue={searchValue}
         onChangeSearch={setSearchValue}
       ></Header>

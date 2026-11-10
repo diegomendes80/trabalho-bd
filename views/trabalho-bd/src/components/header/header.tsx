@@ -6,13 +6,12 @@ import { ActionButton } from "../UI/actionButton/actionButton.tsx";
 import { ProfileIcon } from "../UI/profileIcon/profileIcon.tsx";
 import { Logo } from "../UI/logo/logo.tsx";
 import { SearchInput } from "../UI/searchInput/searchInput.tsx";
+import { useNavigate } from "react-router-dom";
 
 
 interface HeaderProps {
   onToggleMediaType?: (type: "movies" | "series") => void;
   onClickInputSearch?: (type: boolean) => void;
-  onClickProfile?: () => void;
-  onClickLogo?: () => void;
   searchValue?: string;
   onChangeSearch?: (type: string) => void;
 }
@@ -20,20 +19,19 @@ interface HeaderProps {
 export const Header = ({
   onToggleMediaType,
   onClickInputSearch,
-  onClickLogo,
   searchValue,
   onChangeSearch,
 }: HeaderProps) => {
 
 
-
+  const navigate = useNavigate();
 
   return (
     <Box component="header" className="header">
       <Box
         component="div"
         className="header__logo"
-        onClick={() => onClickLogo?.()}
+        onClick={() => navigate("/")}
       >
         <Logo />
       </Box>
