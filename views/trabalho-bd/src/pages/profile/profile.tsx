@@ -2,7 +2,6 @@ import "./profile.scss";
 
 import { Box } from "@mui/material";
 import { HomeProfile } from "../../components/homeProfile/homeProfile";
-import { useNavigate } from "react-router-dom";
 import type { Media } from "../../types/media";
 import type { User } from "../../types/user";
 import type { Review } from "../../types/review";
@@ -68,15 +67,11 @@ export const defaultUser: User = {
 };
 
 export const Profile = () => {
-  const navigate = useNavigate();
 
-  const handleClickLogo = () => {
-    navigate("/");
-  };
 
   return (
     <Box component="div" className="profile-root">
-      <HomeProfile onClickLogo={handleClickLogo} user={defaultUser}/>
+      <HomeProfile  user={defaultUser}/>
       <ProfileStash savedMedias={defaultUser.savedMedias} userReviews={defaultUser.reviews}/>
     </Box>
   );

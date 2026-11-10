@@ -19,9 +19,7 @@ export const Root = () => {
     console.log(type);
   };
 
-  const handleOpenProfile = () => {
-    navigate("/profile");
-  };
+
 
   const handleClickLogo = () => {
     navigate("/");
@@ -32,7 +30,6 @@ export const Root = () => {
     <Box component="div" className="root">
       <Header
         onToggleMediaType={toggleMediaTypeExibition}
-        onClickProfile={handleOpenProfile}
         onClickInputSearch={setOpenSearch}
         onClickLogo={handleClickLogo}
         searchValue={searchValue}

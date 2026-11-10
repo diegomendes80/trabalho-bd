@@ -7,6 +7,7 @@ import { ProfileIcon } from "../UI/profileIcon/profileIcon.tsx";
 import { Logo } from "../UI/logo/logo.tsx";
 import { SearchInput } from "../UI/searchInput/searchInput.tsx";
 
+
 interface HeaderProps {
   onToggleMediaType?: (type: "movies" | "series") => void;
   onClickInputSearch?: (type: boolean) => void;
@@ -19,11 +20,14 @@ interface HeaderProps {
 export const Header = ({
   onToggleMediaType,
   onClickInputSearch,
-  onClickProfile,
   onClickLogo,
   searchValue,
   onChangeSearch,
 }: HeaderProps) => {
+
+
+
+
   return (
     <Box component="header" className="header">
       <Box
@@ -62,7 +66,6 @@ export const Header = ({
         <Box component="div" className="header__profile">
           <ProfileIcon
             name="Sherlock"
-            onClickProfile={onClickProfile ?? (() => {})}
           />
         </Box>
       </Box>
