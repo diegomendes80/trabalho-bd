@@ -1,13 +1,14 @@
 import "./profileIcon.scss";
 import Avatar from "@mui/material/Avatar";
+import { useNavigate } from "react-router-dom";
 
 interface ProfileIconProps {
   name: string;
-  onClickProfile: () => void;
 }
 
-export const ProfileIcon = ({ name, onClickProfile }: ProfileIconProps) => {
+export const ProfileIcon = ({ name}: ProfileIconProps) => {
   let initials: string[] = [];
+    const navigate = useNavigate();
 
   for (const c of name) {
     if(initials.length >= 2) break;
@@ -15,7 +16,7 @@ export const ProfileIcon = ({ name, onClickProfile }: ProfileIconProps) => {
   }
 
   return (
-    <Avatar alt="Profile Icon" className="profile-icon" onClick={() => {onClickProfile()}}>
+    <Avatar alt="Profile Icon" className="profile-icon" onClick={() => {navigate("/profile")}}>
       {initials.join("")}
     </Avatar>
   );

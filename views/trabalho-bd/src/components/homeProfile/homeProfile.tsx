@@ -5,14 +5,13 @@ import { HomeProfileInfo } from '../homeProfileInfo/homeProfileInfo';
 import type { User } from '../../types/user';
 
 interface HomeProfileProps{
-    onClickLogo: () => void;
     user: User;
 }
 
-export const HomeProfile = ({onClickLogo, user}:HomeProfileProps) => {
+export const HomeProfile = ({ user}:HomeProfileProps) => {
     return(
         <Box component="div" className="home-profile-root">
-            <Header onClickLogo={onClickLogo}/>
+            <Header/>
             <HomeProfileInfo user={user}/>
         </Box>
     )
