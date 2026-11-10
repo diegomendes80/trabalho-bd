@@ -31,13 +31,6 @@ export const ModalReview = ({
     }
   }, [openReview])
 
-  useEffect(() => {
-    if(openReview){
-      document.body.style.overflow = "hidden";
-    }else{
-      document.body.style.overflow = "";
-    }
-  }, [openReview])
 
 
   return (
