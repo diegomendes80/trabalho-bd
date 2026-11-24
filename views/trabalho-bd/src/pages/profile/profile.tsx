@@ -19,6 +19,7 @@ const interestelar: Media = {
   director: "Christopher Nolan",
   releaseYear: 2014,
   minuteDuration: 169,
+  producer: { name: "sony", country: "us" },
   saved: true,
 };
 
@@ -35,6 +36,7 @@ const breakingBad: Media = {
   releaseYear: 2008,
   qtdEpisodes: 62,
   qtdSeasons: 5,
+  producer: { name: "sony", country: "us" },
   saved: true,
 };
 
@@ -59,7 +61,8 @@ export const defaultUser: User = {
   name: "Sherlock Holmes",
   usercode: "SH001",
   email: "sherlock@email.com",
-  bioPhrase: "Elementar, meu caro. Cinéfilo de plantão e viciado em séries de crime. Amante de neo-noir, ficção científica e tudo que Villeneuve dirige.",
+  bioPhrase:
+    "Elementar, meu caro. Cinéfilo de plantão e viciado em séries de crime. Amante de neo-noir, ficção científica e tudo que Villeneuve dirige.",
   registerDate: new Date("2024-03-18"),
   birthdate: new Date("1990-01-06"),
   savedMedias: [interestelar, breakingBad],
@@ -67,12 +70,13 @@ export const defaultUser: User = {
 };
 
 export const Profile = () => {
-
-
   return (
     <Box component="div" className="profile-root">
-      <HomeProfile  user={defaultUser}/>
-      <ProfileStash savedMedias={defaultUser.savedMedias} userReviews={defaultUser.reviews}/>
+      <HomeProfile user={defaultUser} />
+      <ProfileStash
+        savedMedias={defaultUser.savedMedias}
+        userReviews={defaultUser.reviews}
+      />
     </Box>
   );
 };

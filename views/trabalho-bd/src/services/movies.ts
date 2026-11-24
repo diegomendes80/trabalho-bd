@@ -1,4 +1,5 @@
 import type { Media } from "../types/media";
+import type { Producer } from "../types/producer";
 import { getTvShowDetails } from "./series";
 
 const API_URL = "https://api.themoviedb.org/3";
@@ -87,6 +88,8 @@ export const getPopularMovies = async (): Promise<Media[]> => {
         );
         const credits = await creditsRes.json();
         const director = credits.crew.find((c: any) => c.job === "Director");
+        const c = details?.production_companies?.[0];
+        const producer: Producer = {name: c?.name ?? "Não informado", country: c?.origin_country ?? "Não informado"}
 
         return {
           name: details.title,
@@ -100,6 +103,7 @@ export const getPopularMovies = async (): Promise<Media[]> => {
             ? new Date(details.release_date).getFullYear()
             : 0,
           minuteDuration: details.runtime || 0,
+          producer:producer,
           saved: false,
         } as Media;
       }),
@@ -139,6 +143,9 @@ export const getMovie = async (name: string): Promise<Media[]> => {
               (c: any) => c.job === "Director",
             );
 
+            const c = details?.production_companies?.[0];
+            const producer: Producer = {name: c?.name ?? "Não informado", country: c?.origin_country ?? "Não informado"}
+
             return {
               id: m.id,
               name: m.title,
@@ -156,11 +163,14 @@ export const getMovie = async (name: string): Promise<Media[]> => {
                 ? new Date(m.release_date).getFullYear()
                 : 0,
               minuteDuration: details.runtime || 0,
+              producer: producer,
               saved: false,
             } as Media;
           } else {
             const details = await getTvShowDetails(m.id);
             const creator = details.created_by?.[0];
+            const c = details?.production_companies?.[0];
+            const producer: Producer = {name: c?.name ?? "Não informado", country: c?.origin_country ?? "Não informado"}
 
             return {
               id: m.id,
@@ -180,6 +190,7 @@ export const getMovie = async (name: string): Promise<Media[]> => {
                 : 0,
               qtdEpisodes: details.number_of_episodes || 0,
               qtdSeasons: details.number_of_seasons || 0,
+              producer: producer,
               saved: false,
             } as Media;
           }
@@ -229,6 +240,9 @@ export const getRatedMediaByGenre = async (
               (c: any) => c.job === "Director",
             );
 
+            const c = details?.production_companies?.[0];
+            const producer: Producer = {name: c?.name ?? "Não informado", country: c?.origin_country ?? "Não informado"}
+
             return {
               id: m.id,
               name: m.title,
@@ -246,11 +260,14 @@ export const getRatedMediaByGenre = async (
                 ? new Date(m.release_date).getFullYear()
                 : 0,
               minuteDuration: details.runtime || 0,
+              producer: producer,
               saved: false,
             } as Media;
           } else {
             const details = await getTvShowDetails(m.id);
             const creator = details.created_by?.[0];
+            const c = details?.production_companies?.[0];
+            const producer: Producer = {name: c?.name ?? "Não informado", country: c?.origin_country ?? "Não informado"}
 
             return {
               id: m.id,
@@ -270,6 +287,7 @@ export const getRatedMediaByGenre = async (
                 : 0,
               qtdEpisodes: details.number_of_episodes || 0,
               qtdSeasons: details.number_of_seasons || 0,
+              producer: producer,
               saved: false,
             } as Media;
           }
