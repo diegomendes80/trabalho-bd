@@ -30,6 +30,10 @@ export const Root = () => {
     } else {
       document.body.style.overflow = "";
     }
+    
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [openReview, openLogSearch, openSearch]);
 
   const toggleMediaTypeExibition = (type: "movies" | "series") => {
