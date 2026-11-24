@@ -7,6 +7,7 @@ import { Header } from "../../components/header/header";
 import { HomeMediaPage } from "../../components/homeMediaPage/homeMediaPage";
 import { ReviewsMediaPage } from "../../components/reviewsMediaPage/reviewsMediaPage";
 import { TechnicalSheet } from "../../components/UI/technicalSheet/technicalSheet";
+import { MediaProducer } from "../../components/UI/mediaProducer/mediaProducer";
 
 
 export const MediaPage = () => {
@@ -34,7 +35,10 @@ export const MediaPage = () => {
       />
       <Box component={"div"} className="media__stash">
         <ReviewsMediaPage />
-        <TechnicalSheet media={media} />
+        <Box component={"div"} className="stash__techinical">
+          <TechnicalSheet media={media} />
+          <MediaProducer media={media}/>
+        </Box>
       </Box>
     </Box>
   );

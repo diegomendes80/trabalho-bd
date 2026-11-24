@@ -1,3 +1,5 @@
+import type { Producer } from "./producer";
+
 export interface BaseMedia {
   name: string;
   type: string;
@@ -7,6 +9,7 @@ export interface BaseMedia {
   srcBannerMobile: string;
   director: string;
   releaseYear: number;
+  producer: Producer;
   saved: boolean;
 }
 
